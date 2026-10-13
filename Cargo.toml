@@ -1,0 +1,26 @@
+[package]
+name = "utopia-agents"
+description = "AI agents on LLM providers: conversations, messages with image attachments, structured output schemas, streamed responses, token accounting, embeddings, and diff checks."
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.88"
+license = "BSD-3-Clause"
+
+[dependencies]
+getrandom = "0.3"
+hex = "0.4"
+php-std = { version = "0.1.0", git = "https://github.com/utopia-rs/php-std" }
+thiserror = "2"
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "net", "time", "sync", "signal", "rt"] }
+utopia-client = { version = "0.1.0", git = "https://github.com/utopia-rs/client" }
+utopia-console = { version = "0.1.0", git = "https://github.com/utopia-rs/console" }
+# The agents-sync-openrouter-models task (src/bin): sha1() of colliding
+# constant names, and gmdate() of its header.
+sha1 = "0.10"
+chrono = { version = "0.4", default-features = false, features = ["clock", "std", "serde"] }
+
+[dev-dependencies]
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "net", "time", "sync", "signal", "rt"] }
+
+[package.metadata.utopia]
+php-sync = "da0119eda7c139b8f99b13d814e5a99f9b5ac418"
